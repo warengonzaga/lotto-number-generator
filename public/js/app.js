@@ -58,7 +58,7 @@ function addCombinationRow() {
     <div class="checkbox-group">
       <label class="checkbox-label">
         <input type="checkbox" id="rambolito-${combinationCount}" class="rambolito-checkbox" checked>
-        <span>Rambolito (Position doesn't matter)</span>
+        <span>Rambolito</span>
       </label>
     </div>
     ${combinationCount > 1 ? `<button type="button" class="remove-btn" onclick="removeCombination(${combinationCount})">Remove</button>` : ''}
