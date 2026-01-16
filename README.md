@@ -1,174 +1,210 @@
+<div align="center">
+
 # PCSO 2D Lotto Generator
+
+**Mobile-first web app for generating PCSO 2D lotto combinations with intelligent buffer system**
 
 [![License](https://img.shields.io/github/license/warengonzaga/pcso-2d-lotto-generator)](https://github.com/warengonzaga/pcso-2d-lotto-generator/blob/main/LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/warengonzaga/pcso-2d-lotto-generator)](https://github.com/warengonzaga/pcso-2d-lotto-generator/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/warengonzaga/pcso-2d-lotto-generator)](https://github.com/warengonzaga/pcso-2d-lotto-generator/network/members)
 
-A mobile-first web application for generating PCSO 2D lotto number combinations with buffer system and Rambolito mode support. Perfect for Filipino lotto players looking to optimize their number combinations.
+[🚀 Live Demo](https://warengonzaga.github.io/pcso-2d-lotto-generator) • [📖 Documentation](./AGENTS.md) • [🐛 Report Bug](https://github.com/warengonzaga/pcso-2d-lotto-generator/issues) • [✨ Request Feature](https://github.com/warengonzaga/pcso-2d-lotto-generator/issues)
 
-## Features
+</div>
 
-- **PCSO 2D Number Range (0-31)** - Official Philippine lotto number range
-- **Buffer System (0-2)** - Automatically generate nearby number variations
-- **Rambolito Mode** - Position-independent winning combinations
-- **Live Cost Monitoring** - Real-time bet amount calculation (₱20 per combination)
-- **Multiple Combinations** - Add unlimited number combinations
-- **Export Options** - Copy to clipboard or download as text file
-- **Mobile-First Design** - Optimized for mobile devices with dark mode theme
-- **No Backend Required** - Runs entirely in your browser (client-side)
+---
 
-## Quick Start
+## 📋 Table of Contents
 
-### Online (GitHub Pages)
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [How It Works](#-how-it-works)
+- [Usage Guide](#-usage-guide)
+- [Tech Stack](#-tech-stack)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Support](#-support)
 
-Visit the live version at: **https://warengonzaga.github.io/pcso-2d-lotto-generator**
+## ✨ Features
 
-### Local Development
+| Feature | Description |
+|---------|-------------|
+| 🎯 **PCSO 2D Range** | Official Philippine lotto numbers (0-31) |
+| 🔢 **Smart Buffer System** | Generate ±1 or ±2 number variations automatically |
+| 🎲 **Rambolito Mode** | Position-independent winning (7-26 = 26-7) |
+| 💰 **Live Cost Tracker** | Real-time bet calculation (₱20/combo) |
+| ➕ **Unlimited Combos** | Add as many combinations as you need |
+| 📋 **Export Tools** | Copy to clipboard or download as .txt |
+| 📱 **Mobile-First UI** | Responsive design with dark mode theme |
+| ⚡ **Client-Side Only** | No backend needed, runs in your browser |
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/warengonzaga/pcso-2d-lotto-generator.git
-   cd pcso-2d-lotto-generator
-   ```
+## 🚀 Quick Start
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+### 🌐 Online Access
 
-3. **Start the server**
-   ```bash
-   npm start
-   ```
+**👉 [Launch App](https://warengonzaga.github.io/pcso-2d-lotto-generator)**
 
-4. **Open your browser**
-   ```
-   http://localhost:3000
-   ```
+No installation needed! Use it directly in your browser.
 
-## How It Works
+### 💻 Local Development
 
-### Buffer Logic
+```bash
+# Clone repository
+git clone https://github.com/warengonzaga/pcso-2d-lotto-generator.git
+cd pcso-2d-lotto-generator
 
-The buffer system generates nearby number variations based on your settings:
+# Install dependencies
+npm install
 
-- **Buffer 0**: Exact number only
-- **Buffer 1**: Original number ± 1 variation
-- **Buffer 2**: Original number ± 2 variations
+# Start development server
+npm start
 
-### Rambolito Mode
+# Open browser at http://localhost:3000
+```
 
-Rambolito mode determines how positions are handled:
+## 🧠 How It Works
 
-| Mode | Buffer | Behavior |
-|------|--------|----------|
-| **Checked** | Any | Position doesn't matter (7-26 = 26-7) |
-| **Unchecked** | 0 | Exact position only |
-| **Unchecked** | ≥1 | Auto-corrects position (includes reversals) |
+### Buffer System Logic
+
+The buffer generates nearby number variations:
+
+| Buffer | Output Example (for number 15) |
+|--------|-------------------------------|
+| **0** | `15` (exact only) |
+| **1** | `14, 15, 16` (±1 variation) |
+| **2** | `13, 14, 15, 16, 17` (±2 variations) |
+
+### Rambolito Mode Behavior
+
+| Rambolito | Buffer | Result |
+|-----------|--------|--------|
+| ✅ Enabled | Any | Position-independent (7-26 = 26-7) |
+| ❌ Disabled | 0 | Exact position only (7-26 ≠ 26-7) |
+| ❌ Disabled | ≥1 | Generates both positions + buffered variations |
 
 ### Output Format
 
-Generated combinations follow this format:
 ```
 07 26 20 R
+│  │  │  └─ Rambolito flag (if enabled)
+│  │  └──── Bet amount (₱20)
+│  └─────── Second number
+└────────── First number
 ```
-- First number: **07**
-- Second number: **26**
-- Amount: **20** (in pesos)
-- Rambolito flag: **R** (if enabled)
 
-## Usage Example
+## 📱 Usage Guide
 
-1. Enter your two lucky numbers (0-31)
-2. Set your bet amount per combination (default: ₱20)
-3. Choose buffer level (0-2)
-4. Check/uncheck Rambolito mode
-5. Add more combinations if needed
-6. Click "Generate Numbers"
-7. Copy or download your combinations
+1. **Enter Numbers** - Input your two lucky numbers (0-31)
+2. **Set Bet Amount** - Configure cost per combination (default: ₱20)
+3. **Choose Buffer** - Select 0, 1, or 2 for variation range
+4. **Toggle Rambolito** - Enable/disable position-independent mode
+5. **Add More** - Click "Add Combination" for additional sets
+6. **Generate** - Hit "Generate Numbers" to create combinations
+7. **Export** - Copy to clipboard or download as text file
 
-## Tech Stack
+**💡 Pro Tip:** Use Buffer 1-2 with Rambolito disabled to maximize coverage while managing costs.
 
-- **Backend:** Node.js with Express
-- **Frontend:** Vanilla HTML, CSS, JavaScript (no frameworks)
-- **Theme:** Dark mode with neon purple/violet aesthetic
-- **Hosting:** GitHub Pages (static frontend)
+## 🛠️ Tech Stack
 
-## Project Structure
+| Layer | Technology |
+|-------|-----------|
+| **Frontend** | Vanilla JavaScript, HTML5, CSS3 |
+| **Backend** | Node.js + Express |
+| **Styling** | Dark mode with neon purple aesthetic |
+| **Hosting** | GitHub Pages (static) |
+| **Philosophy** | No frameworks, pure web fundamentals |
+
+<details>
+<summary>📂 Project Structure</summary>
 
 ```
 pcso-2d-lotto-generator/
-├── .github/
-│   └── copilot-instructions.md
 ├── public/
 │   ├── css/
 │   │   └── style.css          # Dark theme styles
 │   ├── js/
 │   │   ├── generator.js       # Core buffer logic
 │   │   └── app.js             # UI interactions
-│   └── index.html             # Main HTML structure
+│   └── index.html             # Main HTML
 ├── server.js                  # Express server
-├── package.json
-├── .gitignore
 ├── AGENTS.md                  # AI agent instructions
-├── LICENSE                    # GPL-3.0 License
-└── README.md
+└── package.json
 ```
+</details>
 
-## Contributing
+## 🤝 Contributing
 
-Contributions are welcome! This project follows the [Clean Commit Convention](https://github.com/wgtechlabs/clean-commit) by @wgtechlabs.
+Contributions are welcome! This project follows the **[Clean Commit Convention](https://github.com/wgtechlabs/clean-commit)** by @wgtechlabs.
 
-### Commit Format
+### Commit Types
 
-```
-<emoji> <type>: <description>
-```
+| Emoji | Type | Example |
+|-------|------|---------|
+| 📦 | `new` | `📦 new: add export to CSV feature` |
+| 🔧 | `update` | `🔧 update: improve buffer calculation` |
+| 🗑️ | `remove` | `🗑️ remove: unused lodash dependency` |
+| 🔒 | `security` | `🔒 security: patch XSS vulnerability` |
+| 🧪 | `test` | `🧪 test: add buffer edge cases` |
+| 📖 | `docs` | `📖 docs: update readme examples` |
 
-**Example:**
+See [AGENTS.md](./AGENTS.md) for complete guidelines and all 9 commit types.
+
+### Workflow
+
 ```bash
-📦 new: add export to CSV feature
-🔧 update: improve buffer calculation
-🐛 fix: correct rambolito logic
-📖 docs: update readme with examples
+# 1. Fork and clone
+git clone https://github.com/YOUR_USERNAME/pcso-2d-lotto-generator.git
+
+# 2. Create feature branch
+git checkout -b feature/amazing-feature
+
+# 3. Make changes and commit
+git commit -m '📦 new: add amazing feature'
+
+# 4. Push and create PR
+git push origin feature/amazing-feature
 ```
 
-See `.github/copilot-instructions.md` and `AGENTS.md` for detailed guidelines.
+**Before submitting:**
+- ✅ Test on mobile (375px width minimum)
+- ✅ Verify buffer logic with edge cases
+- ✅ Check cost calculations
+- ✅ Follow clean-commit convention
 
-### Development Workflow
+## 📄 License
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes following the clean-commit convention
-4. Test thoroughly on mobile and desktop
-5. Commit your changes (`git commit -m '📦 new: add amazing feature'`)
-6. Push to your branch (`git push origin feature/amazing-feature`)
-7. Open a Pull Request to `main` branch
+GNU General Public License v3.0 - see [LICENSE](LICENSE) file for details.
 
-## License
+## 👨‍💻 Author
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+**Waren Gonzaga**
+- 🌐 Website: [warengonzaga.com](https://warengonzaga.com)
+- 💼 GitHub: [@warengonzaga](https://github.com/warengonzaga)
 
-## Author
+## ⚠️ Disclaimer
 
-Created by **Waren Gonzaga**
+This tool is for **entertainment and convenience purposes only**. Please play responsibly.
 
-- GitHub: [@warengonzaga](https://github.com/warengonzaga)
-- Website: [warengonzaga.com](https://warengonzaga.com)
+- The author is not responsible for any losses incurred from using this application
+- Gambling can be addictive - seek help if needed
+- This is not affiliated with or endorsed by PCSO
 
-## Disclaimer
+## 💖 Support
 
-This tool is for entertainment and convenience purposes only. Please play responsibly. The author is not responsible for any losses incurred from using this application. Gambling can be addictive - seek help if needed.
+If you find this project helpful:
 
-## Support
-
-If you find this project helpful, please consider:
-
-- Giving it a star on GitHub
-- Sharing it with fellow lotto players
-- Contributing improvements
-- Reporting issues or bugs
+- ⭐ Star this repository
+- 🔄 Share with fellow lotto players
+- 🐛 [Report issues](https://github.com/warengonzaga/pcso-2d-lotto-generator/issues)
+- 💡 [Suggest features](https://github.com/warengonzaga/pcso-2d-lotto-generator/issues)
+- 🤝 Contribute improvements
 
 ---
 
-Made with ❤️ for Filipino lotto players
+<div align="center">
+
+**Made with ❤️ for Filipino lotto players**
+
+[⬆ Back to Top](#pcso-2d-lotto-generator)
+
+</div>
