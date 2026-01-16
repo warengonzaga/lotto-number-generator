@@ -773,6 +773,12 @@ button {
   margin-bottom: 0.5rem;
 }
 
+.app-version {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
 .footer-author {
   color: var(--text-light);
   font-size: 0.9rem;

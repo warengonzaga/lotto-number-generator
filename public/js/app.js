@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial cost update
   updateCostMonitor();
+
+  // Fetch and display app version
+  fetchAppVersion();
 });
 
 /**
@@ -539,5 +542,23 @@ function importBackup(event) {
   };
   
   reader.readAsText(file);
+}
+
+/**
+ * Fetch and display app version from package.json
+ */
+async function fetchAppVersion() {
+  try {
+    const response = await fetch('/api/version');
+    if (response.ok) {
+      const data = await response.json();
+      const versionElement = document.getElementById('appVersion');
+      if (versionElement && data.version) {
+        versionElement.textContent = `v${data.version}`;
+      }
+    }
+  } catch (error) {
+    console.error('Failed to fetch app version:', error);
+  }
 }
 
