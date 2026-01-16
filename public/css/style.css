@@ -438,6 +438,36 @@ button {
   transform: scale(0.98) translateY(0);
 }
 
+.import-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  width: 100%;
+  padding: 0.875rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.import-btn:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+  transform: translateY(-2px);
+}
+
+.import-btn:active {
+  transform: scale(0.98) translateY(0);
+}
+
 .btn-icon {
   font-size: 1.5rem;
   line-height: 1;
@@ -543,7 +573,7 @@ button {
 /* Action Buttons */
 .action-buttons {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
@@ -585,6 +615,18 @@ button {
 .download-btn:hover {
   background: linear-gradient(135deg, #14b8a6, var(--success-color));
   box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+  transform: translateY(-2px);
+}
+
+.export-btn {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: white;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.export-btn:hover {
+  background: linear-gradient(135deg, #f97316, #f59e0b);
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
   transform: translateY(-2px);
 }
 
